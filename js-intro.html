@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Знайомство з JS Мосійчук</title>
+    <script>
+    	var photos_count = 4;
+    	var current_photo_index = 1;
+    	function show_next_photo() {
+    		current_photo_index++;
+    		if (current_photo_index > photos_count)
+    			current_photo_index = 1;
+    		var element_photo = document.getElementById("current_photo");
+    		element_photo.src = "photo" + current_photo_index + ".jpg"; 	
+    	}
+    	function add_next_photo() {
+    		var new_image = document.createElement("img");
+    		current_photo_index++;
+    		if (current_photo_index > photos_count)
+    			current_photo_index = 1;
+    		new_image.src = "photo" + current_photo_index + ".jpg"; 
+    		var container_element = document.getElementById("gallery_photo"); 
+    		container_element.appendChild(new_image);	
+
+    	}
+	</script>
+</head>
+<body>
+	<div id="gallery_photo">
+		<img id="current_photo" src="photo1.jpg" />
+	</div>
+	<button onclick="show_next_photo()">Наступне фото</button>
+	<button onclick="add_next_photo()">Додати фото</button>
+</body>
+</html>
